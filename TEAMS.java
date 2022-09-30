@@ -18,7 +18,7 @@ public class TEAMS{
         
         //Load the data if available ### DO NOT CHANGE THIS PART
         try{
-            students =(ArrayList<Student>)loadData("students");
+            students =(ArrayList<Student>)loadData("ListofStudents");
 
         }catch(Exception e){
             students = new ArrayList<>();
@@ -35,15 +35,61 @@ public class TEAMS{
         }
 
 
-        //############## MAIN MENU STARTS HERE ##############
-        int ans = 0;
+        //############## MAIN MENU STARTS HERE #############
+        
+            System.out.println("Welcome To My TEAMS Project");
+    
+            int choice = 1;
+            while(choice > 0){
+    
+                //Print the Menu
+                System.out.println("1) Add Students "); 
+                System.out.println("2) Add Teacher");
+                System.out.println("3) Add Course");
+                System.out.println("0) Previous Page");
+                System.out.println();//EMPTY LINE
+                //get the choice
+                System.out.println("Choice: ");
+                choice = sc.nextInt();
+                sc.nextLine();//You have to do this
+    
+                if(choice  == 1){
+                    optionOne();
+                }else if(choice == 2){
+                    optionTwo();
+                }else if(choice == 3){
+                    optionThree();
+                }
 
-        while(ans != -1){
-            System.out.println("1. ");
+                    public static void optionOne(){
+                    System.out.println("DOING OPTION 1");
+                }
+            
+                public static void optionTwo(){
+                    System.out.println("DOING OPTION 2");
+                }
+            
+                public static void optionThree(){
+                    int choice = 1;
+                    while(choice > 0){
+                        //Print the Menu
+                        System.out.print("#### OPTION 3 Menu ####");
+                        System.out.println("1) Sub Option 1"); 
+                        System.out.println("2) Sub Option 2");
+                        System.out.println("3) Sub Option 3");
+                        System.out.println("0) Exit");
+                        System.out.println();//EMPTY LINE
+                        //get the choice
+                        System.out.println("Choice: ");
+                        choice = sc.nextInt();
+                        sc.nextLine();//You have to do this
+                    }
+                }
+    
+            }
         }
         
-
-    }
+    
 
     //#### DO NOT CHANGE THIS FUNCTION ####
     public static void saveData()throws Exception{
