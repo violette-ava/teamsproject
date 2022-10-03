@@ -1,6 +1,18 @@
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Student implements Serializable {
-    Student student1 = new Student() //HOW DO I USE THE INFO FROM THE OTHER CLASS TO MAKE THIS OBJECT 
-    
+ private String name;
+ private int gradeLevel;
+private ArrayList<Course> courses; 
+
+    public Student(String name, int gradeLevel){
+        this.name= name;
+        this.gradeLevel= gradeLevel;
+        courses= new ArrayList<>();
+
+
+    }
+
+   
 }
