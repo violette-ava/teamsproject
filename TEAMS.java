@@ -62,11 +62,17 @@ public class TEAMS{
                 }
 
                     public static void optionOne(){
-                    System.out.println("DOING OPTION 1");
+                    System.out.println("Add a Student");
+                    System.out.println("Enter New Student Name: ");
+                    Scanner fetchstudent = new Scanner(System.in);
+                    System.out.println("Enter grade level: ");
+                    Scanner fetchgrade = new Scanner(System.in);
+
                 }
             
                 public static void optionTwo(){
-                    System.out.println("DOING OPTION 2");
+                    System.out.println("Add a Teacher");
+                    
                 }
             
                 public static void optionThree(){
@@ -87,38 +93,34 @@ public class TEAMS{
                 }
     
             }
-        }
-        
-    
+        }           //#### DO NOT CHANGE THIS FUNCTION ####
+                    public static void saveData()throws Exception{
+                     FileOutputStream f1 = new FileOutputStream("students");
+                    ObjectOutputStream os = new ObjectOutputStream(f1);
+                     os.writeObject(students);
+                     os.close();
+                     f1.close();
 
-    //#### DO NOT CHANGE THIS FUNCTION ####
-    public static void saveData()throws Exception{
-        FileOutputStream f1 = new FileOutputStream("students");
-        ObjectOutputStream os = new ObjectOutputStream(f1);
-        os.writeObject(students);
-        os.close();
-        f1.close();
+                    FileOutputStream f2 = new FileOutputStream("courses");
+                     os = new ObjectOutputStream(f2);
+                     os.writeObject(courses);
+                     os.close();
+                     f2.close();
 
-        FileOutputStream f2 = new FileOutputStream("courses");
-        os = new ObjectOutputStream(f2);
-        os.writeObject(courses);
-        os.close();
-        f2.close();
-
-        FileOutputStream f3 = new FileOutputStream("teachers");
-        os = new ObjectOutputStream(f3);
-        os.writeObject(teachers);
-        os.close();
-        f3.close();
+                     FileOutputStream f3 = new FileOutputStream("teachers");
+                     os = new ObjectOutputStream(f3);
+                     os.writeObject(teachers);
+                     os.close();
+                     f3.close();
     }
 
-    //#### DO NOT CHANGE THIS FUNCTION ####
-    public static Object loadData(String name) throws Exception{
-        FileInputStream fis = new FileInputStream(name);
-        ObjectInputStream ois = new  ObjectInputStream(fis);   
-        Object o = ois.readObject();
-        ois.close();
-        fis.close();
-        return o;
+                     //#### DO NOT CHANGE THIS FUNCTION ####
+                     public static Object loadData(String name) throws Exception{
+                     FileInputStream fis = new FileInputStream(name);
+                     ObjectInputStream ois = new  ObjectInputStream(fis);   
+                     Object o = ois.readObject();
+                      ois.close();
+                     fis.close();
+                     return o;
     }
 }
