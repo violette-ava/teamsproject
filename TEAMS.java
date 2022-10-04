@@ -82,7 +82,8 @@ public class TEAMS{
             System.out.println("Enter Years of Experience: ");
             int yearsofexp = sc.nextInt();
             sc.nextLine();
-
+            Teacher t = new Teacher(teachername,yearsofexp);
+            teachers.add(t);
         }
         
         public static void optionThree(){
@@ -90,12 +91,27 @@ public class TEAMS{
             while(choice > 0){
                 //Print the Menu
                 System.out.println("Add a Course:");
-                System.out.println("Enter Subject: "); 
+                System.out.println("Enter Course: "); 
                 String subject= sc.nextLine();
+                for(int i= 0; i< Course.size(); i++){
+                    System.out.print(i + " " + courses.get(i));
+                }
+                System.out.print(s: "Choice: ");
+                int choice3 = sc.nextInt();
+                sc.nextLine();
+
                 System.out.println("Pick a Teacher");
-                ArrayList<Teacher> teachers= new ArrayList<Teacher>();
-                teachers.add("Mr. Perdomo");
-                //NEED HELP MAKING THE TEACHER ARRAY LIST
+                for(int i=0; i< teachers.size(); i++){
+                    System.out.println(i + " "+ teachers.get(i));
+                }
+                System.out.print("Choice: ");
+                int choice2 = sc.nextInt();
+                sc.nextLine();
+                
+                
+
+
+
                 
                 
 

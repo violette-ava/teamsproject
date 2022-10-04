@@ -1,8 +1,10 @@
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Teacher implements Serializable {
     private String teachername;
     private int yearsofexp;
+    private ArrayList<Course> classestaught;
 
 
     public Teacher(String teachername, int yearsofexp){
@@ -27,7 +29,7 @@ public class Teacher implements Serializable {
         return this.yearsofexp;
     }
 
-
-
-    
+    public String toString(){
+        return teachername;
+    }
 }

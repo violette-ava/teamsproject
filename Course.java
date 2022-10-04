@@ -7,11 +7,9 @@ public class Course implements Serializable{
     private int Grade;
     private boolean current; 
 
-    public Course (String subject, Teacher teacher, int Grade, boolean current){
+    public Course (String subject, int Grade){
         this.subject= subject;
-        teachers= new ArrayList<>();
         this.Grade= Grade;
-        this.current= current; 
 
     }
 
@@ -27,6 +25,9 @@ public class Course implements Serializable{
 
     public String getsubject(){
         return this.subject;
+    }
+    public String toString(){//CHANGE 
+        return //NEED TO RETURN COURSE BY TEACHER
     }
 
     public void setGrade(int Grade){
@@ -49,8 +50,12 @@ public class Course implements Serializable{
         teachers= new ArrayList<>();
     }
 
-    public ArrayList getteachers(){
+    public ArrayList getteachers(){    
         return teachers;
+    }
+
+    public static int size() {
+        return 0;
     }
         
     }
