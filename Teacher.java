@@ -4,6 +4,7 @@ public class Teacher implements Serializable {
     private String teachername;
     private int yearsofexp;
 
+
     public Teacher(String teachername, int yearsofexp){
         this.teachername= teachername;
         this.yearsofexp= yearsofexp;
@@ -26,7 +27,7 @@ public class Teacher implements Serializable {
         return this.yearsofexp;
     }
 
-    
+
 
     
 }

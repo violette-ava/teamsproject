@@ -89,20 +89,16 @@ public class TEAMS{
             int choice = 1;
             while(choice > 0){
                 //Print the Menu
-                System.out.print("Add a Course");
+                System.out.println("Add a Course:");
                 System.out.println("Enter Subject: "); 
+                String subject= sc.nextLine();
                 System.out.println("Pick a Teacher");
+                ArrayList<Teacher> teachers= new ArrayList<Teacher>();
+                teachers.add("Mr. Perdomo");
+                //NEED HELP MAKING THE TEACHER ARRAY LIST
+                
                 
 
-            
-
-                System.out.println("3) Sub Option 3");
-                System.out.println("0) Exit");
-                System.out.println();//EMPTY LINE
-                //get the choice
-                System.out.println("Choice: ");
-                choice = sc.nextInt();
-                sc.nextLine();//You have to do this
             }
         }
 
