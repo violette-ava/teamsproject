@@ -1,21 +1,21 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.swing.plaf.basic.BasicTabbedPaneUI.TabSelectionHandler;
+
 public class Course implements Serializable{
     private String subject;
-    private ArrayList<Teacher> teachers;
+    private Teacher teacher;
     private int Grade;
     private boolean current; 
 
-    public Course (String subject, int Grade){
+    public Course (String subject){
         this.subject= subject;
-        this.Grade= Grade;
 
     }
-
     public Course(String subject, Teacher teacher, int Grade){
         this.subject = subject;
-        teachers= new ArrayList<>();
+        this.teacher = teacher;
         this.Grade= Grade;
     }
 
@@ -26,9 +26,9 @@ public class Course implements Serializable{
     public String getsubject(){
         return this.subject;
     }
-    public String toString(){//CHANGE 
+    /*public String toString(){//CHANGE 
         return //NEED TO RETURN COURSE BY TEACHER
-    }
+    }*/
 
     public void setGrade(int Grade){
         this.Grade= Grade;
@@ -46,19 +46,26 @@ public class Course implements Serializable{
         return current;
     }
 
-    public void setteachers(ArrayList teachers){
-        teachers= new ArrayList<>();
+    public void setTeacher(Teacher t ){
+        teacher= t;
     }
 
-    public ArrayList getteachers(){    
-        return teachers;
+    public Teacher getteachers(){    
+        return teacher;
     }
 
     public static int size() {
         return 0;
     }
         
+    public String toString(){
+     if(Grade >0 ){
+        return subject+" by "+teacher+" Grade: "+Grade;}
+        else{
+            return subject+ " by "+teacher;
+        }
     }
+}
 
 
 

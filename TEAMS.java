@@ -47,7 +47,7 @@ public class TEAMS{
                 System.out.println("2) Add Teacher");
                 System.out.println("3) Add Course");
                 System.out.println("4) Edit Students");
-                System.out.println("5) List All Teachers");
+                System.out.println("5) List All Student");
                 System.out.println("6) List All Courses");
                 System.out.println("7) Search for a Student");
                 System.out.println("0) Previous Page");
@@ -63,9 +63,28 @@ public class TEAMS{
                     optionTwo();
                 }else if(choice == 3){
                     optionThree();
+                }else if(choice == 4){
+                    optionFour();
+                }else if(choice == 5){
+                    optionFive();
                 }
+            
             }
         }
+        
+        private static void optionFive() { 
+            for(int i = 0; i<students.size(); i++){
+                System.out.print(i = " "+ students.get(i));
+
+            }
+    }
+
+        private static void optionFour() {
+            System.out.println("Edit Student:");
+            System.out.println("Which student would you like to edit?:")
+
+    }
+
         public static void optionOne(){
             System.out.println("Add a Student");
             System.out.println("Enter New Student Name: ");
@@ -91,31 +110,26 @@ public class TEAMS{
             while(choice > 0){
                 //Print the Menu
                 System.out.println("Add a Course:");
-                System.out.println("Enter Course: "); 
+                System.out.println("Enter Subject: "); 
                 String subject= sc.nextLine();
                 for(int i= 0; i< Course.size(); i++){
-                    System.out.print(i + " " + courses.get(i));
+                    System.out.print(i + " " + courses.get(i)); 
                 }
-                System.out.print(s: "Choice: ");
-                int choice3 = sc.nextInt();
-                sc.nextLine();
 
                 System.out.println("Pick a Teacher");
-                for(int i=0; i< teachers.size(); i++){
+                for(int i=0; i< teachers.size(); i++){      //THIS FOR LOOP IS NOT LETTING ME RETURN TO THE MENU
                     System.out.println(i + " "+ teachers.get(i));
                 }
                 System.out.print("Choice: ");
                 int choice2 = sc.nextInt();
-                sc.nextLine();
+                Teacher t = teachers.get(choice);
+                Course c = new Course(subject);
+                c.setTeacher(t);
+                courses.add(c);
                 
-                
-
-
-
-                
-                
-
             }
+        
+            
         }
 
     
