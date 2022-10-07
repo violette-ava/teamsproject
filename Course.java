@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 import javax.swing.plaf.basic.BasicTabbedPaneUI.TabSelectionHandler;
 
-public class Course implements Serializable{
+public class Course implements Serializable, Cloneable{
     private String subject;
     private Teacher teacher;
     private int Grade;
@@ -19,6 +19,12 @@ public class Course implements Serializable{
         this.Grade= Grade;
     }
 
+    public Course(String subject2, Teacher t) {
+        this.subject = subject2;
+        this.teacher = t;
+    }
+
+
     public void setsubject(String subject){
         this.subject= subject;
     }
@@ -26,10 +32,7 @@ public class Course implements Serializable{
     public String getsubject(){
         return this.subject;
     }
-    /*public String toString(){//CHANGE 
-        return //NEED TO RETURN COURSE BY TEACHER
-    }*/
-
+    
     public void setGrade(int Grade){
         this.Grade= Grade;
     }
@@ -61,10 +64,22 @@ public class Course implements Serializable{
     public String toString(){
      if(Grade >0 ){
         return subject+" by "+teacher+" Grade: "+Grade;}
-        else{
+    else{
             return subject+ " by "+teacher;
         }
     }
+        
+     public Course clone() {
+      try {
+         return (Course) super.clone();
+         } catch (Exception e) {
+         }
+         return null;
+
+     }
+
+     
+     
 }
 
 
