@@ -41,6 +41,8 @@ public class TEAMS {
         while (choice > 0) {
 
             // Print the Menu
+            System.out.println();
+            System.out.println();
             System.out.println("1) Add Students ");
             System.out.println("2) Add Teacher");
             System.out.println("3) Add Course");
@@ -78,7 +80,7 @@ public class TEAMS {
     private static void optionZero() {
         try {
 
-            saveData();
+            //saveData();
 
         } catch (Exception e) {
         }
@@ -86,18 +88,27 @@ public class TEAMS {
     }
 
     private static void optionSeven() {
+        boolean found = false;
         System.out.println("Enter student name:");
         String name = sc.nextLine();
-        // NEED A FOR LOOP THAT PRINTS THE STUDENT toString OR PRINTS "STUDENT NOT
-        // FOUND"
+        for(int index = 0; index < students.size(); index++){
+            Student s = students.get(index);
+            if(s.getname().equals(name)){
+                System.out.println(s);
+                found = true;
+            } 
+        }
+        if(! found){
+            System.out.println("Not found");
+        }
     }
 
     private static void optionSix() {
         System.out.println("Listing Courses...");
-        for (int index = 0; index < courses.size(); index++) {
-            System.out.print(index + " " + courses.get(index));
-        
+        for (int index = 0; index < courses.size(); index++){
+            System.out.println(index + " " + courses.get(index));
         }
+        
     }
 
     private static void optionFive() {
@@ -115,6 +126,7 @@ public class TEAMS {
         }
         System.out.println("Choice:");
         int choice = sc.nextInt();
+        Student student = students.get(choice);
         sc.nextLine();
         // Print edit menu
         System.out.println("1) Modify Name");
@@ -126,31 +138,36 @@ public class TEAMS {
         int choice2 = sc.nextInt();
         sc.nextLine();
 
-        if (choice == 1) {
-            optionModifyname();
-        } else if (choice == 2) {
-            optionModifyGrade();
-        } else if (choice == 3) {
-            optionAddClass();
-        } else if (choice == 4) {
-            optionRemoveClass();
+        if (choice2 == 1) {
+            optionModifyname(student);
+        } else if (choice2 == 2) {
+            optionModifyGradeLevel(student);
+        } else if (choice2 == 3) {
+            optionAddClass(student);
+        } else if (choice2 == 4) {
+            optionRemoveClass(student);
         }
     }
 
-    private static void optionRemoveClass() {
+    private static void optionRemoveClass(Student s) {
         System.out.println("Pick a class:");
+        ArrayList<Course> courses= s.getCourses();
         for (int index = 0; index < courses.size(); index++) {
-            System.out.print(index + " " + courses.get(index));
+            System.out.println(index + " " + courses.get(index));
         System.out.println("Choice:");
         int ans = sc.nextInt();
-
-        // NEED AN IF STATEMENT THAT ALLOWS ME TO REMOVE A CLASS
+        Course c = courses.get(ans);
+        s.removeCourse(c);
+        }
+        
+        
     }
 
-    private static void optionAddClass() {
+    private static void optionAddClass(Student s) {
         System.out.println("Pick a class");
         for (int index = 0; index < courses.size(); index++) {
-            System.out.print(index + " " + courses.get(index));
+            System.out.println(index + " " + courses.get(index));
+        }
         System.out.println();
         System.out.println("Choice:");
         int ans = sc.nextInt();
@@ -166,17 +183,26 @@ public class TEAMS {
             if (yesNo.equals("y")) {
                 c.setcurrent(true);
             }
+            s.addCourse(c);
         }
+              
+    }
+    
+
+    private static void optionModifyGradeLevel(Student s) {
+        System.out.print("Modifying Grade Level...");
+        System.out.print("Enter New Grade Level: ");
+        int newgradeLevel = sc.nextInt();
+        s.setgradeLevel(newgradeLevel);
+        
     }
 
-    private static void optionModifyGrade() {
-        System.out.print("Modifying grade...");
-        // IDK HOW TO EDIT THIS
-    }
-
-    private static void optionModifyname() {
+    private static void optionModifyname(Student s) {
         System.out.print("Modifying name...");
-        // NEED TO TAKE THE STUDENT THEY PICKED AND EDIT THE VARIABLE FOR NAME
+        System.out.print("Enter new name: ");
+        String newName = sc.nextLine();
+        s.setname(newName);
+
     }
 
     public static void optionOne() {
